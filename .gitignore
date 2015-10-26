@@ -1,0 +1,15 @@
+*.gem
+*.rbc
+backend/.config
+backend/coverage/
+backend/InstalledFiles
+backend/pkg/
+backend/spec/reports/
+backend/test/tmp/
+backend/test/version_tmp/
+backend/tmp/
+
+## Documentation cache and generated files:
+backend/doc/
+backend/rdoc/
+
