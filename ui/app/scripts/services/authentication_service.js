@@ -9,6 +9,17 @@ angular.module('uiApp')
       return this.authenticatedUser != null;
     }
 
+    this.signoff = function () {
+      this.authenticatedUser = null;
+    }
+
+    this.signin = function (user, password) {
+      if (user === 'gui') {
+        this.authenticatedUser = {};
+        return true;
+      }
+
+      return false;
+    }
+
   });
-
-
