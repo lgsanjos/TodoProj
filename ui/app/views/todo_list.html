@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>My ToDo Lists</h1>
+  <div ng-repeat="list in ctrl.myTodoLists">
+      <span>[{{ list.public ? 'PUBLIC' : 'PRIVATE'}}]</span> 
+      <a href='#/tasks/{{list.id}}'>{{list.desc}}</a>
+  </div>
+</div>
+
+<br/>
+
+<div class="container">
+  <h1>My Favorited ToDo Lists</h1>
+  <div ng-repeat="list in ctrl.myFavoritedTodoLists">
+    <a href='#/tasks/{{list.id}}'>{{list.desc}}</a>
+  </div>
+</div>

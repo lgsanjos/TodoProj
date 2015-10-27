@@ -1,13 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name uiApp
- * @description
- * # uiApp
- *
- * Main module of the application.
- */
 angular
   .module('uiApp', [
     'ngCookies',
@@ -19,8 +11,13 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
+        templateUrl: 'views/todo_list.html',
+        controller: 'TodoListCtrl',
+        controllerAs: 'ctrl'
+      })
+      .when('/tasks/:id', {
+        templateUrl: 'views/task_list.html',
+        controller: 'TaskListCtrl',
         controllerAs: 'main'
       })
       .when('/about', {

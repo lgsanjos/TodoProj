@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>{{main.todoListName}}</h1>
+  <p>{{main.todoListDescription}}</p>
+</div>
+<br/>
+<div class="container">
+  <div class="row">
+   <div class="col-xs-10">
+      <input ng-model="main.newTaskDescription" id="task" class="form-control" placeholder="Type your tasks" autofocus/>
+    </div>
+    <div class="col-xs-2">
+      <button class="btn btn-default form-control" ng-click="main.addNewTask()">Add</button>
+    </div>
+  </div>
+</div>
+<br />
+<form class="me-select">
+  <ul id="me-select-list">
+    <li ng-repeat="task in main.tasks">
+      <input id="{{task.id}}" name="{{task.id}}" type="checkbox" ng-model="task.checked">
+      <label for="{{task.id}}">{{task.desc}}</label>
+    </li>
+  </ul>
+</form>
