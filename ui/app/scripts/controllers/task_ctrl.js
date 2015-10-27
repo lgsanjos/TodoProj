@@ -10,10 +10,10 @@ angular.module('uiApp')
     this.todoListDescription = this.todoListData.desc;
     this.tasks = this.todoListData.tasks;
 
-    this.newTaskDescription;
+    this.newTaskDescription = '';
 
     this.addNewTask = function () {
       taskService.addNewTask(this.todoListId, this.newTaskDescription);
-    }
+    };
     
   });

@@ -34,11 +34,11 @@ angular.module('uiApp')
 
     this.retrieveTodoListGivenUserId = function (id) {
       return this.myTodoList;
-    }
+    };
 
     this.retrieveFavoriteTodoListGivenUserId = function (id) {
       return this.myFavoriteTodoList;
-    }
+    };
 
     this.newTodoList = function (userId, name, desc, isPublic) {
       var newTodo = {};
@@ -48,7 +48,7 @@ angular.module('uiApp')
       newTodo.desc = desc;
      
       this.myTodoList.push(newTodo);
-    }
+    };
 
     this.addNewTask = function (todoListId, taskDescription) {
       var newTask = { id: 5, checked: false};

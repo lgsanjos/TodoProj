@@ -6,9 +6,9 @@ angular.module('uiApp')
     this.myTodoLists = taskService.retrieveTodoListGivenUserId(1);
     this.myFavoritedTodoLists = taskService.retrieveFavoriteTodoListGivenUserId(1);
 
-    this.taskName;
-    this.taskDescription;
-    this.taskPrivate;
+    this.taskName = '';
+    this.taskDescription = '';
+    this.taskPrivate = '';
 
     this.newTodoList = function () {
       var userId = 1;
@@ -17,6 +17,6 @@ angular.module('uiApp')
       this.taskName = '';
       this.taskDescription = '';
       this.taskPrivate = false;
-    }
+    };
 
   });
