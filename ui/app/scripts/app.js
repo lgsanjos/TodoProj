@@ -12,12 +12,12 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/todo_list.html',
-        controller: 'TodoListCtrl',
+        controller: 'TodoCtrl',
         controllerAs: 'ctrl'
       })
       .when('/tasks/:id', {
         templateUrl: 'views/task_list.html',
-        controller: 'TaskListCtrl',
+        controller: 'TaskCtrl',
         controllerAs: 'main'
       })
       .when('/about', {

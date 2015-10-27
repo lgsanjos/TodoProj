@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('uiApp')
-  .controller('TaskListCtrl', function ($routeParams, taskService) {
+  .controller('TaskCtrl', function ($routeParams, taskService) {
 
     this.todoListId = $routeParams.id;
     this.todoListData = taskService.retrieveTodoListDataGivenId(this.todoListId);

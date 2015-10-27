@@ -1,15 +1,30 @@
 <div class="container">
-  <h1>My ToDo Lists</h1>
+  <h1>Create new ToDo list</h1>
+  <div>
+    <label>Name</label>
+    <input ng-model="ctrl.taskName" placeholder="Task name" class="form-control" type="text"/>
+    <br />
+    <label>Description</label>
+    <input ng-model="ctrl.taskDescription" placeholder="Description" class="form-control" type="text"/>
+    <br />
+    <label>Private?</label> <input ng-model="ctrl.taskPrivate" type="checkbox" class="checkbox" />
+    <br />
+    <button class="btn btn-default" ng-click="ctrl.newTodoList()">Create</button>
+  </div>
+
+  <br />
+
+  <h1>My ToDo lists</h1>
   <div ng-repeat="list in ctrl.myTodoLists">
-      <span>[{{ list.public ? 'PUBLIC' : 'PRIVATE'}}]</span> 
-      <a href='#/tasks/{{list.id}}'>{{list.desc}}</a>
+    <span>[{{ list.public ? 'PUBLIC' : 'PRIVATE'}}]</span> 
+    <a href='#/tasks/{{list.id}}'>{{list.desc}}</a>
   </div>
 </div>
 
 <br/>
 
 <div class="container">
-  <h1>My Favorited ToDo Lists</h1>
+  <h1>My favorited ToDo lists</h1>
   <div ng-repeat="list in ctrl.myFavoritedTodoLists">
     <a href='#/tasks/{{list.id}}'>{{list.desc}}</a>
   </div>
