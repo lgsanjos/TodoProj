@@ -5,6 +5,16 @@ angular.module('uiApp')
      return {
        restrict: 'E',
        replace: true,
-       templateUrl: 'views/header.html'
+       templateUrl: 'views/header.html',
+       controller: function ($scope, authenticationService, $location) {
+         $scope.isAuthenticated = function () {
+           return authenticationService.isUserAuthenticated();
+         };
+
+         $scope.signoff = function () {
+           authenticationService.signoff();
+           $location.path("#/login");
+         }
+       }
      }
   });

@@ -18,8 +18,7 @@
           <li><a href="#about">About</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li ng-if="isAuthenticated"><a href="#"> Sign in</a></li>
-          <li ng-hide="isAuthenticated"><a href="#"> Sign off</a></li>
+          <li ng-if="isAuthenticated()"><a href="#" ng-click="signoff()"> Sign off</a></li>
         </ul>
       </div>
     </div>
