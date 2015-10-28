@@ -8,7 +8,7 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
+ .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/todo_list.html',
