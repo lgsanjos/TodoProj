@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 20151028180906) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.boolean  "checked",     default: false
-    t.string   "description",                 null: false
-    t.integer  "TodoList_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.boolean  "checked",      default: false
+    t.string   "description",                  null: false
+    t.integer  "todo_list_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "todo_lists", force: :cascade do |t|

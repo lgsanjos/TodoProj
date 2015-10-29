@@ -3,7 +3,7 @@ class CreateTasks < ActiveRecord::Migration
     create_table :tasks do |t|
       t.boolean :checked, default: false
       t.string :description, null: false, size: 150
-      t.references TodoList
+      t.belongs_to :todo_list
 
       t.timestamps null: false
     end
