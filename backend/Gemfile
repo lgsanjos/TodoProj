@@ -8,11 +8,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
-group :test do
-  gem 'rspec'
-end
-
 group :development, :test do
+  gem 'rspec-rails'
   gem 'byebug'
 end
 
