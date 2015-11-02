@@ -14,6 +14,8 @@ RSpec.describe AuthenticationController, type: :controller do
     parsed_body = JSON.parse response.body
     expect(parsed_body['name']).to eql 'name'
     expect(parsed_body['password']).to eql 'pass123'
+
+    expect(session[:user]).to be(returned_user)
   end
 
   it 'should return error message when login fail' do

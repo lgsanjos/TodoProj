@@ -9,6 +9,7 @@ class AuthenticationController < ApplicationController
     if user.nil?
       render :text => 'Failed to login', :status => :unauthorized
     else
+      session[:user] = user
       render json: user
     end
 
