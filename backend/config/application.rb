@@ -22,5 +22,19 @@ module Todo
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+
+    config.middleware.use Rack::Cors do
+
+      # XXX: This is totally insecure just to make life easier as it is a demo app
+
+      allow do
+        origins '*'
+        resource '*',
+          :headers => :any,
+          :methods => [:post, :get, :options],
+          :max_age => 0
+      end
+    end
   end
 end

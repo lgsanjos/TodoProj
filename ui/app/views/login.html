@@ -1,6 +1,8 @@
 <div class="container">
 
   <h1>Login</h1> 
+
+  <h4 ng-if="ctrl.showError">Wrong user or password</h4>
     <div class="form-group">
       <label>Login</label>
       <input type="text" class="form-control" ng-model="ctrl.login" placeholder="Login" autofocus/>

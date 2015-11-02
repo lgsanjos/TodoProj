@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('uiApp')
-  .service('authenticationService', function () {
+  .service('authenticationService', function ($http) {
 
     this.authenticatedUser = null;
 
@@ -14,12 +14,10 @@ angular.module('uiApp')
     };
 
     this.signin = function (user, password) {
-      if (user === 'gui' && password === '') {
-        this.authenticatedUser = {};
-        return true;
-      }
-
-      return false;
+      return $http.post("http://localhost:3000/authentication/login", 
+          { 'username': user,
+            'password': password
+          });
     };
 
   });
