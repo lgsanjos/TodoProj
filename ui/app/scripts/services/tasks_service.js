@@ -3,57 +3,38 @@
 angular.module('uiApp')
   .service('taskService', function ($http) {
 
-    this.tasks = [
-         { id: 1, checked: true, desc: "Finish the todo prototype view"},
-         { id: 2, checked: true, desc: "Rename properly, the routes, controller and etc"},
-         { id: 3, checked: true, desc: "Design a list of todo list"},
-         { id: 4, checked: false, desc: "Refactor all the static data to services"} 
-    ];
-
     this.myFavoriteTodoList = [
-      { id: 1, name: '', desc: "Finish the todo prototype view"},
-      { id: 3, name: '', desc: "Design a list of todo list"} 
+      { id: 1, name: 'Gistia Test', description: "Finish the todo prototype view"},
+      { id: 3, name: 'Another Todo', description: "This is a hardcoded list"} 
     ];
 
-    this.myTodoLists = [];
-
-    this.retrieveTodoListDataGivenId = function (id) {
-      var todoList = {
-        name: 'Naaame!!',
-        desc: 'My todo description',
-      };
-
-      todoList.id = id;
-      todoList.tasks = this.tasks;
-      return todoList;
+    this.retrieveAllTasksGivenTodoListId = function (id) {
+      return $http.get('http://localhost:3000/tasks/given_todo_list_id/' + id);
     };
 
     this.retrieveTodoListGivenUserId = function (id) {
-      var _this = this;
-      $http.get('http://localhost:3000/tasks/todolist_given_user_id/' + id).then(function (response) {
-        _this.myTodoLists = response.data;
-      });
+      return $http.get('http://localhost:3000/tasks/todolist_given_user_id/' + id);
     };
 
     this.retrieveFavoriteTodoListGivenUserId = function (id) {
       return this.myFavoriteTodoList;
     };
 
+    this.toggleTaskCheck = function (taskId) {
+      return $http.put('http://localhost:3000/tasks/toggle', { id:  taskId } );
+    };
+
     this.newTodoList = function (userId, name, desc, isPublic) {
-      var newTodo = {};
-      newTodo.id = 10;
-      newTodo.public = isPublic;
-      newTodo.name = name;
-      newTodo.desc = desc;
-     
-      // this.myTodoList.push(newTodo);
+      return $http.post('http://localhost:3000/todolist/add', { 
+          owner_id: userId,
+          description: desc,
+          name: name,
+          isPublic: isPublic
+          });
     };
 
     this.addNewTask = function (todoListId, taskDescription) {
-      var newTask = { id: 5, checked: false};
-      newTask.desc = taskDescription;
-
-      this.tasks.push(newTask);
+      return $http.post('http://localhost:3000/tasks/add', { todo_list_id: todoListId, task: taskDescription});
     };
 
   

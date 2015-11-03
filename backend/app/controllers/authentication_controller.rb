@@ -12,7 +12,14 @@ class AuthenticationController < ApplicationController
       session[:user] = user
       render json: user
     end
+  end
 
+
+  def signup
+    user = User.new(:name => params[:username], :password => params[:password])
+    user.save!
+
+    render :nothing => true, :status => 200
   end
 
 end

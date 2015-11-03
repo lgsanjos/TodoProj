@@ -1,19 +1,30 @@
 'use strict';
 
 angular.module('uiApp')
-  .controller('TaskCtrl', function ($routeParams, taskService) {
+  .controller('TaskCtrl', function ($scope, $routeParams, taskService) {
 
     this.todoListId = $routeParams.id;
-    this.todoListData = taskService.retrieveTodoListDataGivenId(this.todoListId);
+    this.tasks = [];
 
-    this.todoListName = this.todoListData.name;
-    this.todoListDescription = this.todoListData.desc;
-    this.tasks = this.todoListData.tasks;
+    this.retrieveAllTasks = function (id) {
+      taskService.retrieveAllTasksGivenTodoListId(this.todoListId).then(function (response) {
+        this.tasks = response.data.tasks;
+        this.todoListName = response.data.name;
+        this.todoListDescription = response.data.description;
+      }.bind(this));
+    }
 
-    this.newTaskDescription = '';
+    this.retrieveAllTasks(this.todoListId);
+
+    this.toggleTask = function (id) {
+      taskService.toggleTaskCheck(id);
+    }
 
     this.addNewTask = function () {
-      taskService.addNewTask(this.todoListId, this.newTaskDescription);
+      taskService.addNewTask(this.todoListId, this.newTaskDescription).then(function () {
+        this.retrieveAllTasks(this.todoListId);
+        this.newTaskDescription = '';
+      }.bind(this));
     };
     
   });

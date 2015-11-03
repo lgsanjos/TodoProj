@@ -32,7 +32,7 @@ module Todo
         origins '*'
         resource '*',
           :headers => :any,
-          :methods => [:post, :get, :options],
+          :methods => [:put, :post, :get, :options],
           :max_age => 0
       end
     end

@@ -21,13 +21,13 @@
   <h1>My ToDo lists</h1>
   <div ng-repeat="list in ctrl.myTodoLists">
     <span>[{{ list.public ? 'PUBLIC' : 'PRIVATE'}}]</span> 
-    <a href='#/tasks/{{list.id}}'>{{list.desc}}</a>
+    <a href='#/tasks/{{list.id}}'>{{list.name}} - {{list.description}}</a>
   </div>
 
   <br/>
 
   <h1>My favorited ToDo lists</h1>
   <div ng-repeat="list in ctrl.myFavoritedTodoLists">
-    <a href='#/tasks/{{list.id}}'>{{list.desc}}</a>
+    <a href='#/tasks/{{list.id}}'>{{list.name}} - {{list.description}}</a>
   </div>
 </div>

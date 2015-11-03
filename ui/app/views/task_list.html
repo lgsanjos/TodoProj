@@ -21,8 +21,8 @@
 <form class="me-select">
   <ul id="me-select-list">
     <li ng-repeat="task in main.tasks">
-      <input id="{{task.id}}" name="{{task.id}}" type="checkbox" ng-model="task.checked">
-      <label for="{{task.id}}">{{task.desc}}</label>
+      <input id="{{task.id}}" name="{{task.id}}" type="checkbox" ng-model="task.checked" ng-click="main.toggleTask(task.id)">
+      <label for="{{task.id}}">{{task.description}}</label>
     </li>
   </ul>
 </form>

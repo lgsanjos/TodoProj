@@ -26,7 +26,7 @@ describe('TaskServices', function () {
       { id: 3, public: false, name: '', desc: "Design a list of todo list"} 
     ];
 
-    httpbackend.whenGET('http://localhost:3000/tasks/givenuserid/1').respond(myTodoList);
+    httpbackend.whenGET('http://localhost:3000/tasks/todolist_given_user_id/1').respond(myTodoList);
     taskService.retrieveTodoListGivenUserId(1).then(function (todoList) {
       expect(todoList.data).toEqual(myTodoList);
       done();
@@ -34,5 +34,22 @@ describe('TaskServices', function () {
 
     httpbackend.flush();
   });
+
+  it('should retrieve all tasks given todo list id', function (done) {
+
+    var tasks = [
+     { id: 1, checked: true, desc: "Finish the todo prototype view"},
+     { id: 4, checked: false, desc: "Refactor all the static data to services"} 
+    ];
+
+    httpbackend.whenGET('http://localhost:3000/tasks/given_todo_list_id/1').respond(tasks);
+    taskService.retrieveAllTasksGivenTodoListId(1).then(function (response) {
+      expect(response.data).toEqual(tasks);
+      done();
+    });
+
+    httpbackend.flush();
+  });
+
 
 });

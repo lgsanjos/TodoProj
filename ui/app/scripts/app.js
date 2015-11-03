@@ -25,6 +25,11 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+       .when('/signup', {
+        templateUrl: 'views/signup.html',
+        controller: 'AuthenticationCtrl',
+        controllerAs: 'ctrl'
+      })
       .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'AuthenticationCtrl',
