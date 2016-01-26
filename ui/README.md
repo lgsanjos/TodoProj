@@ -1,13 +1,21 @@
 ## Requirements 
 
-[x] User can login
+[x] User can login.
+
 [x] User can sign up.
+
 [x] After signing in, the user can create TODO lists.
+
 [x] Each list can be either public or private.
+
 [x] After creating the list, the user should be able to add tasks via AJAX. Creating tasks should be easy in the user's perspective.
+
 [x] Update tasks via ajax
+
 [ ] The logged user can see public lists from other users.
+
 [ ] The logged user can mark other users' public lists as favorite.
+
 [ ] The logged user can see all the lists he or she marked as favorite.
 
 ## How to run:
